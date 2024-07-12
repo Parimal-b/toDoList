@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener {
-            showNewTaskDialog(Task(0, "", "", false, Priority.MEDIUM))
+            showNewTaskDialog(Task(0, "", "", false, Priority.MEDIUM, ""))
         }
 
     }

@@ -58,11 +58,18 @@
                         android:textSize="17sp"
                         android:text="Task Description" />
 
-                    <Spinner
-                        android:id="@+id/priority_spinner"
-                        android:layout_width="match_parent"
+
+                    <TextView
+                        android:id="@+id/task_category"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:entries="@array/priority_levels" />
+                        android:layout_margin="10dp"
+                        android:textColor="@color/red"
+                        android:textSize="17sp"
+                        android:text="Task Category" />
+
+
+
 
                 </LinearLayout>
 
@@ -86,6 +93,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Delete" />
+
+                    <Spinner
+                        android:id="@+id/priority_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_margin="10dp"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/priority_levels"
+                        android:background="@drawable/spinner_background"/>
 
                 </LinearLayout>
             </LinearLayout>

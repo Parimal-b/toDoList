@@ -25,7 +25,10 @@ data class Task(
     var isCompleted: Boolean,
 
     @ColumnInfo(name = "task_priority")
-    var priority: Priority
+    var priority: Priority,
+
+    @ColumnInfo(name = "task_category")
+    var category: String
 
 
 )

@@ -18,7 +18,7 @@ class TaskViewModel(private val repository: TaskRepository): ViewModel() {
     val inputTaskTitle = MutableLiveData<String>()
     val inputTaskDescription = MutableLiveData<String>()
     val isChecked = MutableLiveData<Boolean>()
-    val taskCategory = MutableLiveData<String>()
+    val inputTaskCategory = MutableLiveData<String>()
 
     val saveOrUpdateButton = MutableLiveData<String>()
     val clearAllOrDeleteButton = MutableLiveData<String>()
@@ -45,15 +45,18 @@ class TaskViewModel(private val repository: TaskRepository): ViewModel() {
             if (isUpdateOrDelete) {
                 taskToUpdateOrDelete.title = inputTaskTitle.value!!
                 taskToUpdateOrDelete.description = inputTaskDescription.value!!
+                taskToUpdateOrDelete.category = inputTaskCategory.value!!
                 update(taskToUpdateOrDelete)
             } else {
                 val title = inputTaskTitle.value!!
                 val description = inputTaskDescription.value!!
+                val category = inputTaskCategory.value!!
 
-                insert(Task(0, title, description, false, priority = Priority.MEDIUM))
+                insert(Task(0, title, description, false, priority = Priority.MEDIUM, category))
 
                 inputTaskTitle.value = ""
                 inputTaskDescription.value = ""
+                inputTaskCategory.value = ""
             }
         }
     }
@@ -95,6 +98,7 @@ class TaskViewModel(private val repository: TaskRepository): ViewModel() {
                 statusMessage.value = Event("Task deleted Successfully")
                 inputTaskTitle.value = ""
                 inputTaskDescription.value = ""
+                inputTaskCategory.value = ""
                 isUpdateOrDelete = false
                 saveOrUpdateButton.value = "Save"
                 clearAllOrDeleteButton.value = "Clear All"
@@ -114,6 +118,7 @@ class TaskViewModel(private val repository: TaskRepository): ViewModel() {
     fun initUpdateAndDelete(task: Task) {
         inputTaskTitle.value = task.title
         inputTaskDescription.value = task.description
+        inputTaskCategory.value = task.category
         isUpdateOrDelete = true
         taskToUpdateOrDelete = task
         saveOrUpdateButton.value = "Update"
@@ -123,6 +128,7 @@ class TaskViewModel(private val repository: TaskRepository): ViewModel() {
     fun initResetAllEditTexts(task: Task){
         inputTaskTitle.value = ""
         inputTaskDescription.value = ""
+        inputTaskCategory.value = ""
         isUpdateOrDelete = false
         taskToUpdateOrDelete = task
         saveOrUpdateButton.value = "Save"

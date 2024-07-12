@@ -93,6 +93,7 @@ class MyViewHolder(val binding: ListItemBinding) : RecyclerView.ViewHolder(bindi
         binding.titleTextView.text = task.title
         binding.edescriptionTextView.text = task.description
         binding.taskCheckbox.isChecked = task.isCompleted
+        binding.taskCategory.text = task.category
         binding.prioritySpinner.setSelection(getPriorityPosition(task.priority))
 
         if (task.isCompleted) {
