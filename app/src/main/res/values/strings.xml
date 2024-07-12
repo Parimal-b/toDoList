@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">ToDOList</string>
+
+    <string-array name="priority_levels">
+        <item>High</item>
+        <item>Medium</item>
+        <item>Low</item>
+    </string-array>
+
+    <string-array name="task_category">
+        <item>Work</item>
+        <item>Personal</item>
+    </string-array>
+
 </resources>

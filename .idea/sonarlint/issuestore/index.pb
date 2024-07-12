@@ -5,8 +5,6 @@ D
 app/build.gradle.kts,d\2\d2a4383452aad84a18429a5844d31330a012a9e6
 @
 build.gradle.kts,d\b\dbcff70658daf80b53ce624f6adcaa529df5ed8d
-b
-2app/src/main/java/com/example/todolist/db/Tasks.kt,a\4\a44390e32000318ca0a9a81f069ce8f5677e879e
 a
 1app/src/main/java/com/example/todolist/db/Task.kt,6\7\674b46e63332dd13edfdbf8c6d52e8aea9d44504
 d
@@ -33,12 +31,8 @@ Q.idea/sonarlint/securityhotspotstore/d/2/d2a4383452aad84a18429a5844d31330a012a9
 Q.idea/sonarlint/securityhotspotstore/8/b/8bb2f36770dc5cfd3d443a769bd67db97d59570e,b\3\b30543dc691390b4d97b9c31e0179e2d177bb7a5
 Å
 Q.idea/sonarlint/securityhotspotstore/e/f/ef01fb847f1842d592cc743d5c41c3d93ecf583a,b\3\b3cae2b89aeb1991ffd45320a203fadaa499b574
-w
-G.idea/sonarlint/issuestore/a/4/a44390e32000318ca0a9a81f069ce8f5677e879e,9\8\98b31f56713b5b450f122de8f22ec05aa395fa0f
 Å
 Q.idea/sonarlint/securityhotspotstore/e/8/e89d39732eb1a1e752ba83d8c6502e2531543a17,3\6\36916fa8ea6eb88935795a94d5c43c4536e65534
-Å
-Q.idea/sonarlint/securityhotspotstore/a/4/a44390e32000318ca0a9a81f069ce8f5677e879e,f\f\ffd4a06dc7dab4efb03d867ea252429d9cfd9abd
 w
 G.idea/sonarlint/issuestore/e/8/e89d39732eb1a1e752ba83d8c6502e2531543a17,a\2\a2eea014b3a0459556502f50b54fa8a2da5e07f6
 i

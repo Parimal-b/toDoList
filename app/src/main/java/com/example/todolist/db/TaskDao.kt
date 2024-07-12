@@ -22,6 +22,11 @@ interface TaskDao {
     @Query("DELETE FROM todo_data_table")
     suspend fun deleteAll()
 
-    @Query("SELECT * FROM todo_data_table")
+    @Query("SELECT * FROM todo_data_table ORDER BY " +
+            "CASE task_priority " +
+            "WHEN 'HIGH' THEN 1 " +
+            "WHEN 'MEDIUM' THEN 2 " +
+            "WHEN 'LOW' THEN 3 " +
+            "END")
     fun getAllTasks(): LiveData<List<Task>>
 }
