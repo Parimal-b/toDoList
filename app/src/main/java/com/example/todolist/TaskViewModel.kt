@@ -20,6 +20,7 @@ class TaskViewModel(private val repository: TaskRepository): ViewModel() {
     val isChecked = MutableLiveData<Boolean>()
     val inputTaskCategory = MutableLiveData<String>()
 
+
     val saveOrUpdateButton = MutableLiveData<String>()
     val clearAllOrDeleteButton = MutableLiveData<String>()
 
@@ -27,6 +28,10 @@ class TaskViewModel(private val repository: TaskRepository): ViewModel() {
     private lateinit var taskToUpdateOrDelete: Task
 
     private val statusMessage = MutableLiveData<Event<String>>()
+
+    private val _dismissDialog = MutableLiveData<Boolean>()
+    val dismissDialog: LiveData<Boolean>get() = _dismissDialog
+
 
     val message: LiveData<Event<String>>
         get() = statusMessage
@@ -58,8 +63,10 @@ class TaskViewModel(private val repository: TaskRepository): ViewModel() {
                 inputTaskDescription.value = ""
                 inputTaskCategory.value = ""
             }
+            _dismissDialog.value = true
         }
     }
+
 
     fun clearAllOrDelete() {
         if (isUpdateOrDelete) {
@@ -86,7 +93,7 @@ class TaskViewModel(private val repository: TaskRepository): ViewModel() {
         viewModelScope.launch {
             repository.update(task)
             withContext(Dispatchers.Main) {
-                statusMessage.value = Event("Task updated Successfully")
+
             }
         }
     }
@@ -120,6 +127,7 @@ class TaskViewModel(private val repository: TaskRepository): ViewModel() {
         inputTaskDescription.value = task.description
         inputTaskCategory.value = task.category
         isUpdateOrDelete = true
+        _dismissDialog.value = false
         taskToUpdateOrDelete = task
         saveOrUpdateButton.value = "Update"
         clearAllOrDeleteButton.value = "Delete"
@@ -129,6 +137,7 @@ class TaskViewModel(private val repository: TaskRepository): ViewModel() {
         inputTaskTitle.value = ""
         inputTaskDescription.value = ""
         inputTaskCategory.value = ""
+        _dismissDialog.value = false
         isUpdateOrDelete = false
         taskToUpdateOrDelete = task
         saveOrUpdateButton.value = "Save"

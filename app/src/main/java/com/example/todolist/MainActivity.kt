@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -61,8 +62,14 @@ class MainActivity : AppCompatActivity() {
     private fun displayTaskLists(){
         taskViewModel.tasks.observe(this, Observer {
             Log.i("MYTAG", it.toString())
-            binding.tasksRecyclerView.adapter = MyRecyclerViewAdapter(it, {selectedItem: Task -> listItemClicked(selectedItem)}, {selectedItem: Task -> checkBoxItemClicked(selectedItem)}, {selectedItem: Task -> deleteTask(selectedItem)},
-                {selectedItem: Task -> updatePriority(selectedItem)})
+            if (it.isEmpty()){
+                binding.noItemAddedCard.isVisible = true
+            }else{
+                binding.noItemAddedCard.isVisible = false
+                binding.tasksRecyclerView.adapter = MyRecyclerViewAdapter(it, {selectedItem: Task -> listItemClicked(selectedItem)}, {selectedItem: Task -> checkBoxItemClicked(selectedItem)}, {selectedItem: Task -> deleteTask(selectedItem)},
+                    {selectedItem: Task -> updatePriority(selectedItem)})
+            }
+
         })
     }
 
@@ -99,7 +106,16 @@ class MainActivity : AppCompatActivity() {
             .setView(dialogBinding.root)
             .setTitle("Add Task")
 
-        dialogBuilder.create().show()
+        val dialog = dialogBuilder.create()
+
+        taskViewModel.dismissDialog.observe(this, Observer { event ->
+            if (event) {
+                dialog.dismiss()
+
+            }
+        })
+
+        dialog.show()
     }
 
     private fun showDialog(task: Task) {
@@ -118,7 +134,16 @@ class MainActivity : AppCompatActivity() {
             .setView(dialogBinding.root)
             .setTitle("Add Task")
 
-        dialogBuilder.create().show()
+        val dialog = dialogBuilder.create()
+
+        taskViewModel.dismissDialog.observe(this, Observer { event ->
+            if (event) {
+                dialog.dismiss()
+            }
+        })
+
+        dialog.show()
     }
+
 
 }

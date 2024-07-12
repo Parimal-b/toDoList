@@ -30,6 +30,22 @@
                 android:textStyle="bold"
                 android:textSize="25sp"/>
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/no_item_added_card"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:visibility="gone">
+                <TextView
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="30sp"
+                    android:text="No Task Added!!"></TextView>
+
+            </androidx.cardview.widget.CardView>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_marginTop="15dp"
