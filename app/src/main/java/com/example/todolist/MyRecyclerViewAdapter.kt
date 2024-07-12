@@ -119,7 +119,7 @@ class MyViewHolder(val binding: ListItemBinding) : RecyclerView.ViewHolder(bindi
             textView.setTextColor(ContextCompat.getColor(textView.context, android.R.color.darker_gray))
         } else {
             textView.paintFlags = textView.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
-            textView.setTextColor(ContextCompat.getColor(textView.context, android.R.color.black))
+            textView.setTextColor(ContextCompat.getColor(textView.context, android.R.color.white))
         }
     }
 }

@@ -24,6 +24,7 @@
             android:clickable="true"
             android:id="@+id/list_item_layout"
             android:focusable="true"
+            app:cardBackgroundColor="@color/card_color"
             app:cardCornerRadius="10dp"
             app:cardElevation="10dp">
 
@@ -43,7 +44,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textStyle="bold"
                         android:textSize="30sp"
                         android:inputType="text"
@@ -54,7 +55,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textSize="17sp"
                         android:text="Task Description" />
 
@@ -84,6 +85,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Completed"
+                        android:textColor="@color/white"
                         android:layout_margin="10dp"
                         android:onCheckedChanged="@{(buttonView, isChecked) -> myViewModel.onCheckedChanged(isChecked)}"/>
 
